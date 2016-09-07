@@ -97,7 +97,7 @@ class HttpResponse
 	}
 
 	/**
-	*根据headersize大小，区分返回的header和body
+	*鏍规嵁headersize澶у皬锛屽尯鍒嗚繑鍥炵殑header鍜宐ody
 	*/
 	public function setHeaderSize($headerSize) {
 		if (0 < $headerSize && 0 < strlen($this->content)) {
@@ -105,12 +105,12 @@ class HttpResponse
 			self::extractKey();
 		}
 		if (0 < $headerSize && $headerSize < strlen($this->content)) {
-			$this->body = substr($this->content, $headerSize+1);
+			$this->body = substr($this->content, $headerSize);
 		}
 	}
 
 	/**
-	*提取header中的requestId和errorMessage
+	*鎻愬彇header涓殑requestId鍜宔rrorMessage
 	*/
 	private function extractKey() {
 		if (0 < strlen($this->header)) {
